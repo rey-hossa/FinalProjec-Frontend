@@ -9,13 +9,15 @@ import { environment } from 'src/environments/environment';
 })
 export class DataService {
 
+  private ApiUrl = 'https://progettofinale-backend.herokuapp.com';
+
   constructor(private http:HttpClient) { }
 
   registerUser(data: any){
-    return this.http.post(environment.apiUrl + '/api/register/', data);
+    return this.http.post(this.ApiUrl + '/api/register/', data);
   }
 
   login(data: any){
-    return this.http.post(environment.apiUrl + '/api/login', data);
+    return this.http.post(this.ApiUrl + '/api/login', data);
   }
 }
