@@ -1,0 +1,77 @@
+<div class="container mt-5 d-flex justify-content-center">
+
+    <div class="col-sm-12 col-md-6 col-xl-4 mt-5 register_custom">
+        <header class=" p-2 mb-2 text-center">
+            <h2>Register</h2>
+        </header>
+    
+    
+        <form (ngSubmit)="submit()" [formGroup]="form">
+            <div class="form-group mb-3">
+                <label class="mb-1" for="name">Name</label>
+                <input type="text" formControlName="name" name="name" class="form-control" placeholder="Enter Name" 
+                [ngClass]="{'is-invalid' : submitted && f.name.errors}">
+    
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">
+                        Name id required
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group mb-3">
+                <label class="mb-1" for="email">Email</label>
+                <input type="text" formControlName="email" name="email" class="form-control" placeholder="Enter Email" 
+                [ngClass]="{'is-invalid' : submitted && f.email.errors}" >
+    
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">
+                        Email id required
+                    </div>
+    
+                    <div *ngIf="f.email.errors.email">
+                        Email must be a valid address
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group mb-3">
+                <label class="mb-1" for="password">Password</label>
+                <input type="password" formControlName="password" name="password" class="form-control" placeholder="Enter Password" 
+                [ngClass]="{'is-invalid' : submitted && f.password.errors}" >
+    
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">
+                        Password id required
+                    </div>
+    
+                    <div *ngIf="f.password.errors.minlenght">
+                        Password must be atleast 6 characters
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group mb-3">
+                <label class="mb-1" for="confirm_password">Confirm Password</label>
+                <input type="password" formControlName="confirmPassword" name="confirm_password" class="form-control" placeholder="Enter Confirm Password" 
+                [ngClass]="{'is-invalid' : submitted && f.confirmPassword.errors}" >
+    
+                <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.confirmPassword.errors.required">
+                        Confirm Password id required
+                    </div>
+    
+                    <div *ngIf="f.confirmPassword.errors.mustMatch">
+                        Password must match
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column">
+                <button type="submit" class="btn btn-dark mt-4 mb-4 button_register" >Register</button>
+            </div>
+    
+        </form>
+    </div>
+    
+</div>

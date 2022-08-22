@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+
+<div class="container my-5 ecommerce_section">
+    <div class="d-flex flex-wrap justify-content-center">
+        <div class="col-sm-11 col-md-5 col-xl-3 m-3" *ngFor="let product of products; let index = index" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">{{product.description}}</p>
+                <p class="card-text">{{product.price}} €</p>
+                <button [disabled]="product.isInCart" (click)="addCart(index,product.id,product.price)" class="btn btn-outline-dark btn-sm product_button"><i class="fa-solid fa-cart-shopping"></i> Aggiungi al carrello</button>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-popup  *ngIf="popup" (onHide)="hidePopup($event)" [message]="1"></app-popup>
+
+<app-footer></app-footer>
+

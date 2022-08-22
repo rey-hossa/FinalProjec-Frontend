@@ -1,0 +1,8 @@
+
+<div class="popup_container d-flex justify-content-center">
+        <div class="col-sm-11 col-md-7 col-xl-3 mt-5 p-4 d-flex flex-column popup_box align-items-center justify-content-center">
+            <h5 *ngIf="message == 1">The product has been added!</h5>
+            <h5 *ngIf="message == 2">The order has been placed!</h5>
+            <button type="button" class="btn btn-primary popup_button mt-4" (click)="setHide()">Ok</button>
+        </div>
+</div>
